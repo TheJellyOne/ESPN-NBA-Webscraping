@@ -4,7 +4,9 @@
 #Download Bash "https://git-for-windows.github.io":
 
 #STEP 1)THIS PART WILL LET YOU ACCESS AND MAKE CHANGES TO THE REPOSITORY
+
 #Open Git Bash
+
 #Setting up SSH Key
 
 >ssh-keygen -t rsa
