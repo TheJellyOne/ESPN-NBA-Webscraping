@@ -3,6 +3,7 @@
 #Instructions to set-up github
 #Download Bash "https://git-for-windows.github.io":
 
+
 #STEP 1)THIS PART WILL LET YOU ACCESS AND MAKE CHANGES TO THE REPOSITORY
 
 #Open Git Bash
@@ -27,6 +28,7 @@
 #Clone the repository
 
 >git clone https://github.com/TheJellyOne/Data-Science-Project-Group
+
 
 #STEP 2)BASIC COMMANDS, DOWNLOAD AND UPLOAD CHANGES
 #Go into Data-Science-Project-Group folder
