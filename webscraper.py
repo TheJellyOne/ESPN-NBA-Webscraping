@@ -12,7 +12,7 @@ done = False
 
 while done == False:
     for link in pageList:
-        done = False
+        isNew = False
         newUrl = requests.get(link)
         newSoup = BeautifulSoup(newUrl.text, "lxml")
         for i in newSoup.find_all("a"):
@@ -21,7 +21,9 @@ while done == False:
                 if "http" in url:   
                     pageList.append(url)
                 else: pageList.append("http:" + url)
-                done = True
+                isNew = True
+    if isNew == 0:
+        done = True
             
     
 for link in pageList:
