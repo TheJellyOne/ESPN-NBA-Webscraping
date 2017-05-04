@@ -4,11 +4,10 @@ import requests
 
 url = requests.get("http://www.espn.com/nba//statistics/player/_/stat/scoring/sort/points")
 
-url = url.text
 players = []
-soup = BeautifulSoup(url, "lxml")
+soup = BeautifulSoup(url.text, "lxml")
 pageList = ["http://www.espn.com/nba//statistics/player/_/stat/scoring/sort/points"]
-newSoup = BeautifulSoup(url, "lxml")
+newSoup = BeautifulSoup(url.text, "lxml")
 done = False
 while done == False:
     for link in pageList:
