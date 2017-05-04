@@ -3,12 +3,13 @@ from bs4 import BeautifulSoup
 import requests
 
 url = requests.get("http://www.espn.com/nba//statistics/player/_/stat/scoring/sort/points")
+soup = BeautifulSoup(url.text, "lxml")
+newSoup = soup
 
 players = []
-soup = BeautifulSoup(url.text, "lxml")
 pageList = ["http://www.espn.com/nba//statistics/player/_/stat/scoring/sort/points"]
-newSoup = BeautifulSoup(url.text, "lxml")
 done = False
+
 while done == False:
     for link in pageList:
         isNew = False
