@@ -1,6 +1,7 @@
 
 from bs4 import BeautifulSoup
 import requests
+import pandas as pd
 
 url = requests.get("http://www.espn.com/nba//statistics/player/_/stat/scoring/sort/points")
 soup = BeautifulSoup(url.text, "lxml")
@@ -31,4 +32,23 @@ for link in pageList:
     soup = BeautifulSoup(url.text,"lxml")
     for i in soup.find_all("a"):
         if "http://www.espn.com/nba/player/_/id/" in i.get('href'):
-            players.append(i.get('href'))
+            statPage = i.get('href')[:30] + "/stats" + i.get('href')[30:]
+            players.append(statPage)
+
+testset = players[:2]
+
+
+for player in testset:
+    trows = []
+    doc = requests.get(player)
+    soup = BeautifulSoup(doc.text, "lxml")
+    for tr in soup.find_all("tr"):
+        tdata = []
+        for td in tr:
+            tdata.append(td.string)
+        trows.append(tdata)
+    trows = trows[3:]
+
+
+
+            
