@@ -35,7 +35,7 @@ for link in pageList:
             statPage = i.get('href')[:30] + "/stats" + i.get('href')[30:]
             players.append(statPage)
 
-testset = players[:1]
+testset = players[:10]
 
 data = []
 for player in testset:
@@ -49,19 +49,26 @@ for player in testset:
         trows.append(tdata)
     trows = trows[3:]
     numObs = int(len(trows)/3)
-    trows1 = trows[0:numObs]
-    trows2 = trows[numObs:2*numObs]
-    trows3 = trows[2*numObs:]
-    print(player)
-    for l in range(numObs-2):
-        dicSec={}
-        for i in range(len(trows1)):
-            dicSec[trows1[1][i]] = trows1[l+2][i]
-        for j in range(len(trows2)):
-            dicSec[trows2[1][j]] = trows2[l+2][j]
-        for k in range(len(trows3)):
-            dicSec[trows3[1][k]] = trows3[l+2][k]
-        data.append(dicSec)
+    trows1 = trows[1:numObs]
+    trows2 = trows[numObs + 1:2*numObs]
+    trows3 = trows[2*numObs + 1:]
+    for meta in soup.find_all('meta'):
+        if meta.has_attr("property"):
+            if "og:title" in meta.get("property"):
+                name = meta['content']
+    for l in range(numObs-3):
+        observation={}
+        observation["Name"] = name
+        for i in range(len(trows1[0])):
+            observation[trows1[0][i]] = trows1[l+1][i]
+        for j in range(len(trows2[0])):
+            if str(trows2[0][j]) in list(observation.keys()):
+                observation[str(trows2[0][j]) + " Season Total"] = trows2[l+1][j]
+            else:
+                observation[trows2[0][j]] = trows2[l+1][j]
+        for k in range(len(trows3[0])):
+            observation[trows3[0][k]] = trows3[l+1][k]
+        data.append(observation)
 
 csv = pd.DataFrame(data)
 csv.to_csv("out.csv")
