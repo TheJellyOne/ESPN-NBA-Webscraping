@@ -35,9 +35,9 @@ for link in pageList:
             statPage = i.get('href')[:30] + "/stats" + i.get('href')[30:]
             players.append(statPage)
 
-testset = players[:2]
+testset = players[:1]
 
-
+data = []
 for player in testset:
     trows = []
     doc = requests.get(player)
@@ -48,7 +48,22 @@ for player in testset:
             tdata.append(td.string)
         trows.append(tdata)
     trows = trows[3:]
+    numObs = int(len(trows)/3)
+    trows1 = trows[0:numObs]
+    trows2 = trows[numObs:2*numObs]
+    trows3 = trows[2*numObs:]
+    print(player)
+    for l in range(numObs-2):
+        dicSec={}
+        for i in range(len(trows1)):
+            dicSec[trows1[1][i]] = trows1[l+2][i]
+        for j in range(len(trows2)):
+            dicSec[trows2[1][j]] = trows2[l+2][j]
+        for k in range(len(trows3)):
+            dicSec[trows3[1][k]] = trows3[l+2][k]
+        data.append(dicSec)
 
-
+csv = pd.DataFrame(data)
+csv.to_csv("out.csv")
 
             
