@@ -19,7 +19,7 @@ We went through this project using python and the BeautifulSoup library. Therefo
 ```
 from bs4 import BeautifulSoup
 import requests
-import pandas 
+import pandas as pd
 ```
 
 Requests is a library used to request the html documents from webpages. Pandas is a library for creating and manipulating dataframes, which is how we store the data we get before putting it into a mySQL table.
