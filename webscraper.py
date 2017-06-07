@@ -35,7 +35,7 @@ for link in pageList:
             statPage = i.get('href')[:30] + "/stats" + i.get('href')[30:]
             players.append(statPage)
 
-testset = players
+testset = players[:10]
 
 data = []
 for player in testset:
