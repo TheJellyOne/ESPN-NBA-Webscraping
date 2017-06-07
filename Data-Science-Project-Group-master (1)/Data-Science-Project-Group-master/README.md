@@ -1,4 +1,4 @@
-﻿#Data-Science-Project-Group
+﻿# Data-Science-Project-Group
 
 #Instructions to set-up github
 #Download Bash "https://git-for-windows.github.io":
