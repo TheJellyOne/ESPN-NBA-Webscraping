@@ -18,7 +18,7 @@ enter password
 
 #go to github account settings and enter SSH, will give you ability to push changes
 
-#Using Github
+##### Using Github
 #Get to directory you want files
 
 >cd desktop
@@ -28,7 +28,7 @@ enter password
 >git clone https://github.com/TheJellyOne/Data-Science-Project-Group
 
 
-#STEP 2)BASIC COMMANDS, DOWNLOAD AND UPLOAD CHANGES
+##### STEP 2)BASIC COMMANDS, DOWNLOAD AND UPLOAD CHANGES
 #Go into Data-Science-Project-Group folder
 
 >cd Data-Science-Project-Group
