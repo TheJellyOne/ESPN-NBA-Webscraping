@@ -1,18 +1,18 @@
-﻿# Data-Science-Project-Group
+# Data-Science-Project-Group
 
-#Instructions to set-up github
-#Download Bash "https://git-for-windows.github.io":
+Instructions to set-up github
+Download Bash "https://git-for-windows.github.io":
 
 
-#STEP 1)THIS PART WILL LET YOU ACCESS AND MAKE CHANGES TO THE REPOSITORY
+##### STEP 1)THIS PART WILL LET YOU ACCESS AND MAKE CHANGES TO THE REPOSITORY
 
-#Open Git Bash
+Open Git Bash
 
-#Setting up SSH Key
+Setting up SSH Key
 
 >ssh-keygen -t rsa
 
-#enter password
+enter password
 
 >clip < ~/.ssh/id_rsa.pub   
 
